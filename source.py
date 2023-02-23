@@ -1,4 +1,6 @@
 import time
+import csv
+import os
 
 # intro function here
 def intro(name):
@@ -39,7 +41,16 @@ def storage(sections):
             5. Electronic accessories
             6. Hardware tools .... 
             or type whatever you keep in as much detail as you'd like to remember \n""".format(i))
+
+            outfile = open("out.csv", "w")
+            writer = csv.writer(outfile)
+
+            writer.writerow(section_dict.keys())
+            writer.writerow(section_dict.values())
+
+
         print(section_dict) #Try adding the outputs to a Database and remove dicts.
+
 
 
 def overhead_choice():
@@ -130,9 +141,9 @@ def main():
         print("You chose your work desk")
         print("....................")
         ondesk_choice()
-    else:
+    elif (storage_type == "4"):
         print("Nice work! Out.csv has your storage areas divided into sections with your items in it.....")
-
+        os.startfile("out.csv")
         print("Let's see what other features are going to be added soon......")
         print("Making this program into an application, Database sytem to store your items in real-time, Machine learning features (Experimental), Expiry date for food etc....")
         quit()
