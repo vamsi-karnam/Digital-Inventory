@@ -42,9 +42,9 @@ def storage(sections):
             6. Hardware tools .... 
             or type whatever you keep in as much detail as you'd like to remember \n""".format(i))
 
-            outfile = open("out.csv", "w")
+            outfile = open("out.csv", "a")
+            
             writer = csv.writer(outfile)
-
             writer.writerow(section_dict.keys())
             writer.writerow(section_dict.values())
 
@@ -148,7 +148,11 @@ def main():
         print("Making this program into an application, Database sytem to store your items in real-time, Machine learning features (Experimental), Expiry date for food etc....")
         quit()
 
+
+
 # Code runs from here
+csvfile = open("out.csv", "w")
+csvfile.truncate(0)
 name = input("Hey whats your name? \n")
 intro(name)
 main() # Main starts here
